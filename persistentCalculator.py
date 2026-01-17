@@ -5,7 +5,8 @@ result = 0
 def addition(number, result):
     return result + number
     
-# Put subtraction function here
+def subtraction(number, result):
+    return result - number
 
 # Put multiplication 
 
@@ -35,7 +36,8 @@ while continue_calculation:
             if op == '+':
                 result = addition(num, result)
             
-            # Put subtraction elif here
+            elif op == '-':
+                result = subtraction(num, result)
 
             # Put multiplication elif here
 
