@@ -11,7 +11,8 @@ def subtraction(number, result):
 def multiplication(number, result):
     return result * number
 
-# Put division function here
+def division(number, result):
+        return result / number
 
 print("Enter +, -, *, or / to start operating.")
 print("Enter 'q' to quit.")
@@ -43,7 +44,11 @@ while continue_calculation:
             elif op == '*':
                 result = multiplication(num, result)
 
-            # Put division elif here
+            elif op == '/':
+                if num == 0:
+                    print("Division by zero error.")
+                else:
+                    result = division(num, result)
 
         except ValueError:
             print("Invalid Number")
