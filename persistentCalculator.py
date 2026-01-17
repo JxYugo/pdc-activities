@@ -8,7 +8,8 @@ def addition(number, result):
 def subtraction(number, result):
     return result - number
 
-# Put multiplication 
+def multiplication(number, result):
+    return result * number
 
 # Put division function here
 
