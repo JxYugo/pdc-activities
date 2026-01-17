@@ -40,7 +40,8 @@ while continue_calculation:
             elif op == '-':
                 result = subtraction(num, result)
 
-            # Put multiplication elif here
+            elif op == '*':
+                result = multiplication(num, result)
 
             # Put division elif here
 
