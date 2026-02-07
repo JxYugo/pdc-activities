@@ -8,7 +8,7 @@
 method is faster and why?
 
 5. Which method is better for CPU-bound tasks and which for I/O-bound
-tasks?
+tasks? - In CPU-bound tasks like computing GWA, the Multiprocessing is better. In our code, each grade calculation is independent, and using multiple processes allows the CPU to handle multiple calculations simultaneously. This improves performance significantly when the number of grades is high. On the otherhand, I/O-bound tasks like reading user input or printing results, Multithreading works well. Threads can perform other tasks while waiting for user input or I/O operations. In our code, threads allowed the program to print results as soon as each grade was processed without blocking the rest of the execution.
 
 6. How did your group apply creative coding or algorithmic solutions in this
 lab?
