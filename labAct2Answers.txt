@@ -1,4 +1,5 @@
 1. Which approach demonstrates true parallelism in Python? Explain.
+Based on our observations, multiprocessing demonstrates true parallelism. Each process runs independently and can utilize a separate CPU core, allowing multiple grades to be computed at the same time. In contrast, multithreading runs all threads within a single process, and although multiple threads are created, the GWA outputs often appear sequential. This behavior occurs because Python threads are limited by the Global Interpreter Lock (GIL), which prevents true parallel execution.
 
 2. Compare execution times between multithreading and multiprocessing.
 
