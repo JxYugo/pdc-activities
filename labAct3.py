@@ -46,9 +46,9 @@ def compute_payroll(employee):
 
     return name, salary, total_deduction, net_salary
 
-# Thread Pooling
+# Thread Parallelism
 
-print ("Thread Pooling")
+print("Thread Pooling")
 
 start = time.time()
 
@@ -82,6 +82,10 @@ end = time.time()
 
 print("\nExecution Time:", end - start)
 start = time.time()
+
+# Process Parallelism
+
+print("\nThread Pooling")
 
 with ProcessPoolExecutor() as executor:
     results = executor.map(compute_payroll, employees)
