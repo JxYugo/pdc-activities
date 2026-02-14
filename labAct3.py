@@ -85,7 +85,7 @@ start = time.time()
 
 # Process Parallelism
 
-print("\nThread Pooling")
+print("\nProcess Pooling\n")
 
 with ProcessPoolExecutor() as executor:
     results = executor.map(compute_payroll, employees)
