@@ -1,5 +1,20 @@
+import threading
+import time
 
+from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 
+SSS_RATE = 0.045
+PHILHEALTH_RATE = 0.025
+PAGIBIG_RATE = 0.02
+TAX_RATE = 0.10
+
+employees = [
+    ("Alice", 25000),
+    ("Bob", 32000),
+    ("Charlie", 28000),
+    ("Diana", 40000),
+    ("Edward", 35000)
+]
 
 ## Deduction and Payroll Functions
 def compute_sss(salary):
