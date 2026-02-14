@@ -45,3 +45,39 @@ def compute_payroll(employee):
     net_salary = salary - total_deduction
 
     return name, salary, total_deduction, net_salary
+
+# Thread Pooling
+
+print ("Thread Pooling")
+
+start = time.time()
+
+for name, salary in employees:
+    print(f"\nProcessing Employee: {name}")
+
+    with ThreadPoolExecutor() as executor:
+        future_sss = executor.submit(compute_sss, salary)
+        future_philhealth = executor.submit(compute_philhealth, salary)
+        future_pagibig = executor.submit(compute_pagibig, salary)
+        future_tax = executor.submit(compute_tax, salary)
+
+        sss = future_sss.result()
+        philhealth = future_philhealth.result()
+        pagibig = future_pagibig.result()
+        tax = future_tax.result()
+
+    total_deduction = sss + philhealth + pagibig + tax
+    net_salary = salary - total_deduction
+
+    print("Salary:", salary)
+    print("SSS:", sss)
+    print("PhilHealth:", philhealth)
+    print("PagIBIG:", pagibig)
+    print("Tax:", tax)
+    print("Total Deduction:", total_deduction)
+    print("Net Salary:", net_salary)
+    print("-" * 30)
+
+end = time.time()
+
+print("\nExecution Time:", end - start)
