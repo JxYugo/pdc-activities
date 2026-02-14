@@ -81,3 +81,20 @@ for name, salary in employees:
 end = time.time()
 
 print("\nExecution Time:", end - start)
+start = time.time()
+
+with ProcessPoolExecutor() as executor:
+    results = executor.map(compute_payroll, employees)
+
+print("Payroll Results:\n")
+
+for name, salary, deduction, net in results:
+    print(f"Employee: {name}")
+    print(f"Gross Salary: {salary}")
+    print(f"Total Deduction: {deduction}")
+    print(f"Net Salary: {net}")
+    print("-" * 30)
+
+end = time.time()
+
+print("Execution Time:", end - start)
