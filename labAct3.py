@@ -81,9 +81,11 @@ for name, salary in employees:
 end = time.time()
 
 print("\nExecution Time:", end - start)
-start = time.time()
+print("-" * 30)
 
 # Process Parallelism
+
+start = time.time()
 
 print("\nProcess Pooling\n")
 
@@ -102,3 +104,4 @@ for name, salary, deduction, net in results:
 end = time.time()
 
 print("Execution Time:", end - start)
+print("-" * 30)
