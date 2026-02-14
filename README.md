@@ -4,11 +4,14 @@ Lab Act 2:
 Based on our observations, multiprocessing demonstrates true parallelism. Each process runs independently and can utilize a separate CPU core, allowing multiple grades to be computed at the same time. In contrast, multithreading runs all threads within a single process, and although multiple threads are created, the GWA outputs often appear sequential. This behavior occurs because Python threads are limited by the Global Interpreter Lock (GIL), which prevents true parallel execution.
 
 2. Compare execution times between multithreading and multiprocessing.
+Multithreading is faster for small tasks because it has lower overhead. Multiprocessing is faster for large tasks because it uses multiple CPU cores and runs tasks in true parallel.
 
 3. Can Python handle true parallelism using threads? Why or why not?
+No. Python threads cannot achieve true parallelism for CPU-bound tasks because of the Global Interpreter Lock or GIL, which allows only one thread to execute at a time per process.
 
 4. What happens if you input a large number of grades (e.g., 1000)? Which
 method is faster and why?
+Multiprocessing is faster because it distributes the workload across multiple CPU cores. Multithreading is slower due to the GIL limiting execution to one thread at a time.
 
 5. Which method is better for CPU-bound tasks and which for I/O-bound
 tasks? - In CPU-bound tasks like computing GWA, the Multiprocessing is better. In our code, each grade calculation is independent, and using multiple processes allows the CPU to handle multiple calculations simultaneously. This improves performance significantly when the number of grades is high. On the otherhand, I/O-bound tasks like reading user input or printing results, Multithreading works well. Threads can perform other tasks while waiting for user input or I/O operations. In our code, threads allowed the program to print results as soon as each grade was processed without blocking the rest of the execution.
