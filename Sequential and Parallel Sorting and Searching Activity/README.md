@@ -77,3 +77,17 @@ Implementing sequential and parallel algorithms revealed that parallel execution
 
 During implementation, we struggled with index management in the parallel merge phase, frequently encountering off-by-one errors that only surfaced with specific data sizes. We also had to experiment with thread counts, learning that simply adding more threads degrades performance due to context-switching overhead. Synchronization further introduced hidden costs; preventing race conditions during parallel search and coordinating the merge step added overhead that sometimes negated gains, especially when scattered memory access hurt cache efficiency.The parallelism proved highly beneficial for large-scale sorting and searching but was counterproductive for small datasets or sub-millisecond operations. This project reinforced that effective parallel programming isn't about maximizing concurrency, but strategically applying it where data volume and computational complexity genuinely justify the overhead.
 
+# Arao, Hugh Humphrey S. - Reflection
+
+In this activity, I observed that sequential and parallel execution differ mainly in how tasks are processed. Sequential algorithms follow a single, step-by-step flow, while parallel algorithms divide the dataset into smaller parts and process them simultaneously using multiple processes. This makes parallel execution more complex due to coordination, but it allows better utilization of system resources.
+
+When analyzing performance across different dataset sizes, I found that sequential algorithms performed better on small datasets because they have minimal overhead. However, as the dataset size increased, parallel algorithms became more competitive and sometimes faster, especially in sorting tasks. This shows that parallelism is more effective when the workload is large enough to justify splitting the computation.
+
+During implementation, I encountered several challenges, particularly in ensuring correctness in the parallel versions. For searching, I had to carefully manage offsets to return the correct global index. For sorting, merging multiple sorted chunks into a single correctly ordered list required additional logic. Managing processes and ensuring proper synchronization using queues also added complexity compared to the simpler sequential approach.
+
+A key insight I gained is that parallel algorithms introduce overhead such as process creation, communication, and synchronization. These factors can significantly impact performance, especially for smaller datasets. If not handled properly, synchronization and merging steps can also lead to incorrect results or inefficiencies.
+
+Overall, parallelism was beneficial when working with large datasets, particularly for sorting where the workload could be effectively divided. However, for smaller datasets and simple operations like linear search, parallel execution was unnecessary and even slower due to overhead. This activity showed that choosing between sequential and parallel approaches depends on balancing workload size and system costs.
+
+
+
