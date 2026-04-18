@@ -67,3 +67,32 @@ def merge_sort(data):
     right = merge_sort(data[mid:])
 
     return merge(left, right)
+
+# Parallel Merge Sort Functions
+def parallel_merge_sort(data):
+    if len(data) <= 1:
+        return data
+
+    max_workers = 4
+
+    chunk_size = len(data) // max_workers
+    if chunk_size == 0:
+        return merge_sort(data)
+
+    chunks = [data[i:i + chunk_size] for i in range(0, len(data), chunk_size)]
+
+    with concurrent.futures.ProcessPoolExecutor(max_workers=max_workers) as executor:
+        sorted_chunks = list(executor.map(merge_sort, chunks))
+
+    while len(sorted_chunks) > 1:
+        new_chunks = []
+
+        for i in range(0, len(sorted_chunks), 2):
+            if i + 1 < len(sorted_chunks):
+                new_chunks.append(merge(sorted_chunks[i], sorted_chunks[i + 1]))
+            else:
+                new_chunks.append(sorted_chunks[i])
+
+        sorted_chunks = new_chunks
+
+    return sorted_chunks[0]
