@@ -45,6 +45,10 @@ Dataset divided into chunks
 Each process searches independently
 Results combined using a queue
 
+## Demo
+
+<img width="1608" height="722" alt="implementation" src="https://github.com/user-attachments/assets/0b418420-763c-4e4b-9ce4-f9ca13a0d660" />
+
 ## Observations and Key Insights
 
 ### Observations
