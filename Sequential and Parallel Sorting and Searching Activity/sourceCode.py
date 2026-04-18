@@ -176,3 +176,204 @@ print("Large:", len(large_reverse))
 print("\n")
 print("=" * 50)
 print("\n")
+
+# Running and Comparison (Sorting)
+
+datasets = {
+  "Small": smallDataset,
+  "Medium": mediumDataset,
+  "Large": largeDataset,
+  "Small Sorted": small_sorted,
+  "Medium Sorted": medium_sorted,
+  "Large Sorted": large_sorted,
+  "Small Reverse Sorted": small_reverse,
+  "Medium Reverse Sorted": medium_reverse,
+  "Large Reverse Sorted": large_reverse
+  }
+
+sort_results = []
+
+print("Sorting")
+
+for name, data in datasets.items():
+  print(f"\n--- {name} Dataset ---")
+
+  start = time.time()
+  seq = merge_sort(data)
+  seq_time = time.time() - start
+
+  start = time.time()
+  par = parallel_merge_sort(data)
+  par_time = time.time() - start
+
+  print("Sorted Correctly:", seq == par)
+  print(f"Sequential Time: {seq_time:.4f} sec")
+  print(f"Parallel Time:   {par_time:.4f} sec")
+
+  sort_results.append((name, seq_time, par_time))
+
+print("\n")
+print("=" * 50)
+print("\n")
+
+# Speedup ratio table (Sorting):
+
+table = []
+
+for name, seq_time, par_time in sort_results:
+  speedup = seq_time / par_time if par_time > 0 else 0
+  table.append([name, seq_time, par_time, speedup])
+
+df = pd.DataFrame(table, columns=[
+  "Dataset",
+  "Sequential (s)",
+  "Parallel (s)",
+  "Speedup (x)"
+])
+
+print("\nSpeedup Ratio Table\n")
+print(df)
+
+print("\n")
+print("=" * 50)
+print("\n")
+
+# Comparison Graphs (Sorting):
+
+# Time Comparison:
+plt.figure(figsize=(12,6))
+
+plt.plot(df["Dataset"], df["Sequential (s)"], marker='o', label="Sequential")
+plt.plot(df["Dataset"], df["Parallel (s)"], marker='o', label="Parallel")
+
+plt.xticks(rotation=45)
+plt.title("Sequential vs Parallel Merge Sort Time")
+plt.xlabel("Dataset")
+plt.ylabel("Time (seconds)")
+plt.legend()
+plt.grid()
+
+plt.tight_layout()
+plt.show()
+
+print("\n")
+print("=" * 50)
+print("\n")
+
+
+# Speedup Ratio Comparison:
+plt.figure(figsize=(12,6))
+
+plt.plot(df["Dataset"], df["Speedup (x)"], marker='o', color='green')
+plt.axhline(y=1, color='red', linestyle='--', label="No Speedup (1x)")
+
+plt.xticks(rotation=45)
+plt.title("Speedup Ratio Sequential vs Parallel")
+plt.xlabel("Dataset")
+plt.ylabel("Speedup")
+plt.legend()
+plt.grid()
+
+plt.tight_layout()
+plt.show()
+
+print("\n")
+print("=" * 50)
+print("\n")
+
+# Running and Comparison (Searching)
+
+search_results = []
+
+print("Searching")
+
+for name, data in datasets.items():
+    print(f"\n--- {name} Dataset ---")
+
+    target = data[len(data)//2]
+
+    start = time.time()
+    seq = linear_search(data, target)
+    seq_time = time.time() - start
+
+    start = time.time()
+    par = parallel_linear_search(data, target)
+    par_time = time.time() - start
+
+    print(f"Target Value: {target}")
+    print(f"Sequential Found Index: {seq}")
+    print(f"Parallel Found Index:   {par}")
+
+    print(f"Sequential Time: {seq_time:.6f}")
+    print(f"Parallel Time:   {par_time:.6f}")
+
+    search_results.append((name, seq_time, par_time))
+
+print("\n")
+print("=" * 50)
+print("\n")
+
+# Speedup Ratio Table (Searching)
+
+search_table = []
+
+for name, seq_time, par_time in search_results:
+    speedup = seq_time / par_time if par_time > 0 else 0
+    search_table.append([name, seq_time, par_time, speedup])
+
+search_df = pd.DataFrame(search_table, columns=[
+    "Dataset",
+    "Sequential (s)",
+    "Parallel (s)",
+    "Speedup (x)"
+])
+
+print("\nLinear Search Speedup Ratio Table\n")
+print(search_df)
+
+print("\n")
+print("=" * 50)
+print("\n")
+
+# Comparison Graphs (Searching):
+
+plt.figure(figsize=(12,6))
+
+plt.plot(search_df["Dataset"], search_df["Sequential (s)"], marker='o', label="Sequential")
+plt.plot(search_df["Dataset"], search_df["Parallel (s)"], marker='o', label="Parallel")
+
+# Time Comparison:
+
+plt.xticks(rotation=45)
+plt.title("Sequential vs Parallel Linear Search Time")
+plt.xlabel("Dataset")
+plt.ylabel("Time (seconds)")
+plt.legend()
+plt.grid()
+
+plt.tight_layout()
+plt.show()
+
+print("\n")
+print("=" * 50)
+print("\n")
+
+# Speedup Ratio Comparison:
+plt.figure(figsize=(12,6))
+
+plt.plot(search_df["Dataset"], search_df["Speedup (x)"], marker='o', color='green')
+plt.axhline(y=1, color='red', linestyle='--', label="No Speedup (1x)")
+
+plt.xticks(rotation=45)
+plt.title("Speedup Ratio: Sequential vs Parallel Linear Search")
+plt.xlabel("Dataset")
+plt.ylabel("Speedup (x)")
+plt.legend()
+plt.grid()
+
+plt.tight_layout()
+plt.show()
+
+print("\n")
+print("=" * 50)
+print("\n")
