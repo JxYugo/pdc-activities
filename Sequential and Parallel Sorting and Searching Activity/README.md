@@ -103,5 +103,12 @@ Overall, parallelism was beneficial in situations where the task involved heavy 
 
 Overall, parallelism was beneficial when working with large datasets, particularly for sorting where the workload could be effectively divided. However, for smaller datasets and simple operations like linear search, parallel execution was unnecessary and even slower due to overhead. This activity showed that choosing between sequential and parallel approaches depends on balancing workload size and system costs.
 
+### Ampuan, Ayyah M. - Reflection
+In this project, I saw clear differences between sequential and parallel execution for merge sort and linear search. Sequential code was simpler and more predictable, while parallel code required splitting data, managing processes, and merging results, which made it more complex.
 
+Performance also depended on dataset size. For small datasets, sequential execution was often faster because the overhead of creating processes and combining results slowed down the parallel version. For larger datasets, especially in merge sort, parallelism showed better speedup because the workload was heavy enough to use multiple CPU cores effectively.
+
+One challenge we faced was improving the parallel linear search. We were confused about how to make it more efficient, and despite our efforts, we could not achieve significant improvement due to process overhead and communication costs.
+
+Overall, I learned that parallelism is only beneficial for large, heavy tasks. For small or simple operations, sequential execution is often faster and easier to implement.
 
