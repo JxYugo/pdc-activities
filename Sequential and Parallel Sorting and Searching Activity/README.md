@@ -77,9 +77,7 @@ Results combined using a queue
 
 ### Jison, Remar B. - Reflection
 
-Implementing sequential and parallel algorithms revealed that parallel execution isn't inherently faster that its success heavily depends on dataset size. Like for small datasets (under 10,000 elements), sequential methods consistently outperformed parallel ones because the overhead of thread creation, task division, synchronization barriers, and result merging completely overshadowed any computational gains. However, once the datasets exceeded roughly 100,000–250,000 elements the parallel approaches began to pull ahead, occasionally delivering a 2–3x speedup on larger sets. This clear threshold taught me that parallelism only pays off when the raw computational work justifies the setup costs.
 
-During implementation, we struggled with index management in the parallel merge phase, frequently encountering off-by-one errors that only surfaced with specific data sizes. We also had to experiment with thread counts, learning that simply adding more threads degrades performance due to context-switching overhead. Synchronization further introduced hidden costs; preventing race conditions during parallel search and coordinating the merge step added overhead that sometimes negated gains, especially when scattered memory access hurt cache efficiency.The parallelism proved highly beneficial for large-scale sorting and searching but was counterproductive for small datasets or sub-millisecond operations. This project reinforced that effective parallel programming isn't about maximizing concurrency, but strategically applying it where data volume and computational complexity genuinely justify the overhead.
 
 # Arao, Hugh Humphrey S. - Reflection
 
