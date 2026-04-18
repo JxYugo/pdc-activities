@@ -67,5 +67,7 @@ Results combined using a queue
 #### Sequential VS Parallel Search
 - Linear search does not benefit from parallelization because the cost of process management outweighs the simplicity of the operation.
 
+# Reflections:
+
 
 
