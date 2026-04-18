@@ -104,3 +104,35 @@ def linear_search(data, target):
         if data[i] == target:
             return i
     return -1
+
+# Parallel Linear Search Functions
+
+def worker(sub_data, target, q, offset):
+    for i, value in enumerate(sub_data):
+        if value == target:
+            q.put(offset + i)
+            return
+    q.put(-1)
+
+def parallel_linear_search(data, target):
+    number_processes = 4
+    chunk_size = len(data) // number_processes
+
+    q = Queue()
+    processes = []
+
+    for i in range(number_processes):
+        start = i * chunk_size
+        end = len(data) if i == number_processes - 1 else (i + 1) * chunk_size
+
+        p = Process(target=worker, args=(data[start:end], target, q, start))
+        processes.append(p)
+        p.start()
+
+    results = [q.get() for _ in processes]
+
+    for p in processes:
+        p.join()
+
+    valid = [r for r in results if r != -1]
+    return min(valid) if valid else -1
