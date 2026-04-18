@@ -85,7 +85,7 @@ In this activity, I observed that sequential and parallel execution differ mainl
 
 When analyzing performance across different dataset sizes, I found that sequential algorithms performed better on small datasets because they have minimal overhead. However, as the dataset size increased, parallel algorithms became more competitive and sometimes faster, especially in sorting tasks. This shows that parallelism is more effective when the workload is large enough to justify splitting the computation.
 
-During implementation, I encountered several challenges, particularly in ensuring correctness in the parallel versions. For searching, I had to carefully manage offsets to return the correct global index. For sorting, merging multiple sorted chunks into a single correctly ordered list required additional logic. Managing processes and ensuring proper synchronization using queues also added complexity compared to the simpler sequential approach.
+During implementation, One challenge we encountered was understanding why the parallel search was slower than the sequential search. Initially, this was confusing and unexpected. Later on, we realized that the slowdown was caused by the overhead from partitioning the data and creating additional processes, which outweighed the benefits of parallelization.
 
 A key insight I gained is that parallel algorithms introduce overhead such as process creation, communication, and synchronization. These factors can significantly impact performance, especially for smaller datasets. If not handled properly, synchronization and merging steps can also lead to incorrect results or inefficiencies.
 
