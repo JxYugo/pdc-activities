@@ -96,3 +96,11 @@ def parallel_merge_sort(data):
         sorted_chunks = new_chunks
 
     return sorted_chunks[0]
+
+# Sequential Linear Search Functions
+
+def linear_search(data, target):
+    for i in range(len(data)):
+        if data[i] == target:
+            return i
+    return -1
