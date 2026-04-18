@@ -126,3 +126,6 @@ Overall, this activity helped me understand that parallelism is not always autom
 
 This activity helped me understand how sequential and parallel algorithms perform with different dataset sizes. By validating the datasets, I confirmed that the data used in the experiment was correct. I learned that parallel processing is not always faster, especially for small datasets due to process overhead. Overall, the experiment showed that parallel algorithms are more beneficial when working with larger datasets.
 
+# Ryan Hermoso -> Reflection
+
+Working through both sequential and parallel execution helped me clearly see how parallelism can significantly reduce processing time for large datasets, while sequential methods remain simpler and more efficient for smaller tasks. As the dataset size increased, the performance benefits of parallel execution became more evident, although challenges such as synchronization, task distribution, and result merging introduced additional complexity and overhead. This experience gave me a deeper understanding that while parallelism is powerful, it is most beneficial when applied to the right scale and problem, and not always necessary for simpler or smaller workloads.
