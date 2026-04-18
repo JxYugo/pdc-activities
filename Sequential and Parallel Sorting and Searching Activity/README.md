@@ -95,7 +95,7 @@ During the implementation of both sequential and parallel algorithms, I observed
 
 In terms of performance across dataset sizes, I noticed that increasing the size had a greater effect on sequential algorithms, especially for merge sort, where execution time increased noticeably. Parallel merge sort sometimes handled larger datasets better because the work was divided among multiple processes. However, this improvement was not observed in linear search, where the time difference remained low for sequential execution but consistently high for parallel due to overhead.
 
-One of the main challenges I encountered was managing trying to make the parallel linear search perform better, but it is actually in a normal behavior.
+One of the main challenges I encountered was trying to make the parallel linear search perform better, but it is actually in a normal behavior.
 
 Through this project, I gained a better understanding of overhead and synchronization. I realized that parallel algorithms introduce additional costs that are not present in sequential execution. These include process startup time, memory usage, and communication between processes. If the task itself is not computationally intensive, these overhead costs can outweigh any potential speedup. Synchronization also plays a role, especially when combining results from different processes, which can add delays.
 
