@@ -77,7 +77,11 @@ Results combined using a queue
 
 ### Jison, Remar B. - Reflection
 
+When comparing sequential and parallel execution, I observed distinct differences in performance depending on the operation type and dataset size. For sorting, the parallel merge sort began to outperform the sequential version only with the large dataset (1 million elements). With smaller datasets, the overhead of creating processes and managing threads actually made the parallel approach slower than the simple sequential sort. This highlighted that parallelism introduces a cost that must be outweighed by the computational benefit of dividing the work.
 
+The most significant challenge I encountered was understanding why the parallel linear search was consistently slower than the sequential search across all dataset sizes. Initially, this was confusing because splitting the data should theoretically allow us to find the target faster by searching multiple chunks simultaneously. However, I realized that the overhead of partitioning the data and spawning additional processes for each chunk added significant latency. For linear search, the actual comparison operation is very fast, so the time taken to set up the parallel processes exceeded the time saved by searching in parallel. The system spends more time managing the threads and merging results than it does actually finding the element.
+T
+his experience provided valuable insights into synchronization and overhead. I learned that parallelism is not always beneficial. It is unnecessary and even detrimental for tasks with low computational complexity per element, such as linear search on small to medium arrays. Parallelism becomes beneficial only when the computational workload is heavy enough to justify the initial setup cost of thread creation and management. In this project, parallel sorting showed benefits at scale, but parallel searching did not, demonstrating that the choice between sequential and parallel execution must be carefully evaluated based on the specific algorithm and data volume.
 
 ### Arao, Hugh Humphrey S. - Reflection
 
