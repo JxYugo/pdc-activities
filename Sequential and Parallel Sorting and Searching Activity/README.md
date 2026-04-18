@@ -79,7 +79,7 @@ Results combined using a queue
 
 
 
-# Arao, Hugh Humphrey S. - Reflection
+### Arao, Hugh Humphrey S. - Reflection
 
 In this activity, I observed that sequential and parallel execution differ mainly in how tasks are processed. Sequential algorithms follow a single, step-by-step flow, while parallel algorithms divide the dataset into smaller parts and process them simultaneously using multiple processes. This makes parallel execution more complex due to coordination, but it allows better utilization of system resources.
 
@@ -88,6 +88,20 @@ When analyzing performance across different dataset sizes, I found that sequenti
 During implementation, One challenge we encountered was understanding why the parallel search was slower than the sequential search. Initially, this was confusing and unexpected. Later on, we realized that the slowdown was caused by the overhead from partitioning the data and creating additional processes, which outweighed the benefits of parallelization.
 
 A key insight I gained is that parallel algorithms introduce overhead such as process creation, communication, and synchronization. These factors can significantly impact performance, especially for smaller datasets. If not handled properly, synchronization and merging steps can also lead to incorrect results or inefficiencies.
+
+### Yugo, James Xander A. - Reflection
+
+### Yugo, James Xander A.
+
+During the implementation of both sequential and parallel algorithms, I observed clear differences in their performance and behavior. For merge sort, the parallel version started off slower than the sequential one when using small datasets due to the overhead of creating processes and dividing the data. However, as the dataset size increased, the parallel version became more better and sometimes slightly faster in some cases, but still it is sometimes slower, it is inconsistent too. For linear search, the sequential version consistently outperformed the parallel version across all dataset sizes. Since linear search is a simple and lightweight operation, the overhead from multiprocessing, such as process creation and inter-process communication, made the parallel version slower.
+
+In terms of performance across dataset sizes, I noticed that increasing the size had a greater effect on sequential algorithms, especially for merge sort, where execution time increased noticeably. Parallel merge sort sometimes handled larger datasets better because the work was divided among multiple processes. However, this improvement was not observed in linear search, where the time difference remained low for sequential execution but consistently high for parallel due to overhead.
+
+One of the main challenges I encountered was managing trying to make the parallel linear search perform better, but it is actually in a normal behavior.
+
+Through this project, I gained a better understanding of overhead and synchronization. I realized that parallel algorithms introduce additional costs that are not present in sequential execution. These include process startup time, memory usage, and communication between processes. If the task itself is not computationally intensive, these overhead costs can outweigh any potential speedup. Synchronization also plays a role, especially when combining results from different processes, which can add delays.
+
+Overall, parallelism was beneficial in situations where the task involved heavy computation and large datasets, such as merge sort. However, it was unnecessary for simpler tasks like linear search. This project helped me understand that choosing between sequential and parallel approaches depends on the nature of the problem, and not all algorithms will benefit from parallel execution.
 
 Overall, parallelism was beneficial when working with large datasets, particularly for sorting where the workload could be effectively divided. However, for smaller datasets and simple operations like linear search, parallel execution was unnecessary and even slower due to overhead. This activity showed that choosing between sequential and parallel approaches depends on balancing workload size and system costs.
 
