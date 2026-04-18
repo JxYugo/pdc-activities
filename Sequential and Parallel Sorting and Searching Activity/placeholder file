@@ -1,1 +1,41 @@
+# Importing Dependencies
+import random
+import time
+import concurrent.futures
+import pandas as pd
+import matplotlib.pyplot as plt
+import os
+from multiprocessing import Process, Queue
 
+# Dataset Creation Function
+import random
+
+# Functions
+def create_dataset(size, max_value):
+    return [random.randint(1, max_value) for _ in range(size)]
+
+def create_sorted_dataset(size, max_value):
+    return sorted([random.randint(1, max_value) for _ in range(size)])
+
+def create_reverse_sorted_dataset(size, max_value):
+    return sorted([random.randint(1, max_value) for _ in range(size)], reverse=True)
+
+# Creating Datasets
+smallDataset = create_dataset(1000, 100)
+mediumDataset = create_dataset(100000, 100)
+largeDataset = create_dataset(1000000, 100)
+
+# Special Cases: Already Sorted
+small_sorted = create_sorted_dataset(1000, 100)
+medium_sorted = create_sorted_dataset(100000, 100)
+large_sorted = create_sorted_dataset(1000000, 100)
+
+# Special Cases: Reverse Sorted
+small_reverse = create_reverse_sorted_dataset(1000, 100)
+medium_reverse = create_reverse_sorted_dataset(100000, 100)
+large_reverse = create_reverse_sorted_dataset(1000000, 100)
+
+# Validating Dataset Contents
+
+def preview(data, n=10):
+    return "[" + ", ".join(map(str, data[:n])) + ", ...]"
