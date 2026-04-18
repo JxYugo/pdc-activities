@@ -91,8 +91,6 @@ A key insight I gained is that parallel algorithms introduce overhead such as pr
 
 ### Yugo, James Xander A. - Reflection
 
-### Yugo, James Xander A.
-
 During the implementation of both sequential and parallel algorithms, I observed clear differences in their performance and behavior. For merge sort, the parallel version started off slower than the sequential one when using small datasets due to the overhead of creating processes and dividing the data. However, as the dataset size increased, the parallel version became more better and sometimes slightly faster in some cases, but still it is sometimes slower, it is inconsistent too. For linear search, the sequential version consistently outperformed the parallel version across all dataset sizes. Since linear search is a simple and lightweight operation, the overhead from multiprocessing, such as process creation and inter-process communication, made the parallel version slower.
 
 In terms of performance across dataset sizes, I noticed that increasing the size had a greater effect on sequential algorithms, especially for merge sort, where execution time increased noticeably. Parallel merge sort sometimes handled larger datasets better because the work was divided among multiple processes. However, this improvement was not observed in linear search, where the time difference remained low for sequential execution but consistently high for parallel due to overhead.
