@@ -136,3 +136,43 @@ def parallel_linear_search(data, target):
 
     valid = [r for r in results if r != -1]
     return min(valid) if valid else -1
+
+# Outputs:
+
+# Validating Contents
+
+print("Showing first 10 integers: (random dataset)")
+print("Small:", preview(smallDataset))
+print("Medium:", preview(mediumDataset))
+print("Large:", preview(largeDataset))
+
+print("\nShowing first 10 integers: (sorted dataset)")
+print("Small:", preview(small_sorted))
+print("Medium:", preview(medium_sorted))
+print("Large:", preview(large_sorted))
+
+print("\nShowing first 10 integers: (reverse sorted dataset)")
+print("Small:", preview(small_reverse))
+print("Medium:", preview(medium_reverse))
+print("Large:", preview(large_reverse))
+
+# Validating Size
+
+print("\nShowing dataset size: (random)")
+print("Small:", len(smallDataset))
+print("Medium:", len(mediumDataset))
+print("Large:", len(largeDataset))
+
+print("\nShowing dataset size: (sorted)")
+print("Small:", len(small_sorted))
+print("Medium:", len(medium_sorted))
+print("Large:", len(large_sorted))
+
+print("\nShowing dataset size: (reverse sorted)")
+print("Small:", len(small_reverse))
+print("Medium:", len(medium_reverse))
+print("Large:", len(large_reverse))
+
+print("\n")
+print("=" * 50)
+print("\n")
