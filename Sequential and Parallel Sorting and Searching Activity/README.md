@@ -101,8 +101,6 @@ Through this project, I gained a better understanding of overhead and synchroniz
 
 Overall, parallelism was beneficial in situations where the task involved heavy computation and large datasets, such as merge sort. However, it was unnecessary for simpler tasks like linear search. This project helped me understand that choosing between sequential and parallel approaches depends on the nature of the problem, and not all algorithms will benefit from parallel execution.
 
-Overall, parallelism was beneficial when working with large datasets, particularly for sorting where the workload could be effectively divided. However, for smaller datasets and simple operations like linear search, parallel execution was unnecessary and even slower due to overhead. This activity showed that choosing between sequential and parallel approaches depends on balancing workload size and system costs.
-
 ### Ampuan, Ayyah M. - Reflection
 In this project, I saw clear differences between sequential and parallel execution for merge sort and linear search. Sequential code was simpler and more predictable, while parallel code required splitting data, managing processes, and merging results, which made it more complex.
 
