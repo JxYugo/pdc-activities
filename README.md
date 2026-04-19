@@ -9,13 +9,13 @@ This github repository was created to be the submission bin, and also storage fo
     <td align="center" style="padding:20px">
       <img src="https://avatars.githubusercontent.com/u/161103431?v=4" width="120px" style="border-radius:50%"/><br/><br/>
       <b>James Xander A. Yugo</b><br/>
-      <a href="#">@JxYugo</a>
+      <a href="https://github.com/JxYugo">@JxYugo</a>
     </td>
 
 <td align="center" style="padding:20px"> 
   <img src="https://avatars.githubusercontent.com/u/161101431?v=4" width="120px" style="border-radius:50%"/><br/><br/> 
   <b>Hugh Humphrey Arao</b><br/> 
-  <a href="#">@HughHumphreyArao</a> </td>
+  <a href="https://github.com/HughHumphreyArao">@HughHumphreyArao</a> </td>
     
   </tr>
 </table>
